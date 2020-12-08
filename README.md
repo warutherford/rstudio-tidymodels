@@ -2,7 +2,7 @@
 
 Below is a draft base commands and workflow for getting up and running with a Docker container either pulling from CyVerse VICE and/or building a new Docker container based of a previous container called "rstudio-geospatial:3.6.3" to have R tidymodels already installed ("rstudio-tidymodels:3.6.3")
 
-Text below provided by Tyson Swetname 2020-12-08:
+Text below provided by Tyson Swetnam 2020-12-08:
 Remember to connect to the BIO5 VPN, then to connect to the machine over linux terminal you just need to use the command:
 
 `ssh -p 1657 <your_cyverse_username>@gpu06.cyverse.org`
