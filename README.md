@@ -12,7 +12,9 @@ You then enter your CyVerse password. Once you've logged in successfully, you sh
 
 `docker run -d -it --rm -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 cyversevice/rstudio-geospatial:3.6.3`
 
-This will mount your home directory as a folder called /app inside the container, so you can put your data there and it won't disappear when the container stops. 
+To mount your home directory as a folder called /app inside the container, so you can put your data there and it won't disappear when the container stops, remove the `--rm` tag:
+
+`docker run -d -it -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 cyversevice/rstudio-geospatial:3.6.3`
 
 The -d flag will run the container as a detached background process, so you won't see anything after you execute it. You need to set it to an open port -p, suggested here as 8799 but it can be any four digit number that is not currently in use.
 
@@ -28,7 +30,10 @@ docker builds then push to docker hub
 
 To use this docker container in the future, sign back onto machine, and then run:
 
-`docker run -d -it --rm -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 warutherford/rstudio-tidymodels:3.6.3`
+`docker run -d -it --rm -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 warutherford/rstudio-tidymodels:3.6.3` or remove the `--rm` flag to not remove container once stopped
+
+Can give container a unique name for easier reference with `--name` flag, for example:
+`docker run -d --name Rtidymodels_only -it -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 warutherford/rstudio-tidymodels:3.6.3`
 
 # Finish and stop container
 
