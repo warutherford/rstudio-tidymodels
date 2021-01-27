@@ -37,10 +37,26 @@ Can give container a unique name for easier reference with `--name` flag, for ex
 
 # Finish and stop container
 
-Check docker container ID
+Check docker container ID or name
 `docker ps`
 
-Stop the container by giving unique sequence of ID
+Stop the container by giving unique sequence of ID or name
 `docker stop ####`
+`docker stop Rtidymodels_only` (example)
 
 The container is now stopped.
+
+# Restart the container (if no `--rm` tag)
+
+If stopped, restart by:
+
+`docker restart Rtidymodels_only` or `docker restart ####`
+
+# Rename the container
+
+`docker rename Rtidymodels_only Rtidymodels_complete`
+
+# Check docker manual for additional information/tags
+
+`man docker-run`
+
