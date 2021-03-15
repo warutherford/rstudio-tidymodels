@@ -1,6 +1,9 @@
 # rstudio-tidymodels
 
-Commands and workflow for running a Docker container either pulling from CyVerse VICE and/or building a new Docker container based of a previous container called "rstudio-geospatial:3.6.3" to have R tidymodels already installed ("rstudio-tidymodels:3.6.3")
+The purpose of this GitHub repo is to create a Dockerfile and eventual container based off the "rstudio-geospatial:3.6.3" Docker container to include R Tidymodels and dependents. The "rstudio-geospatial:3.6.3" container is sourced originally from the [Rocker Project.](https://www.rocker-project.org/)
+
+## Methods for building a Docker container and deploying on CyVerse
+Commands and workflow for running a Docker container either by pulling from CyVerse VICE and/or building a new Docker container based of a previous container called "rstudio-geospatial:3.6.3" to have R tidymodels already installed ("rstudio-tidymodels:3.6.3")
 
 Text below provided by Tyson Swetnam on 2020-12-08 for specific use at University of Arizona and CyVerse:
 
