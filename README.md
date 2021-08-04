@@ -49,13 +49,34 @@ Stop the container by giving unique sequence of ID or name
 
 The container is now stopped.
 
-# Restart the container (if no `--rm` tag)
+# Save the container image
+
+First commit the container image to a repo:
+Example, docker container commit `<image name if given>` `<name of container image to store>`
+  
+`docker container commit tidymodels_rf_1995 warutherford/rstudio-tidymodels:v1.0-1995`
+
+Then, save the container image to a tarball:
+Example, docker save -o `<name of tarball to save>` `<name of stored image in repo>`
+
+`docker save -o rtidymodels_rf_1995.tar.gz warutherford/rstudio-tidymodels:v1.0-1995`
+  
+# Load a stored tarball of container image (if need to update or check results/processes)
+
+`docker image load --input rtidymodels_rf_1995.tar.gz`
+
+Once image is loaded, rerun the container:
+`docker run -d --name tidymodels_rf_1995-reopen -it -v $HOME:/app --workdir /app -p 8799:80 -e REDIRECT_URL=http://gpu06.cyverse.org:8799 warutherford/rstudio-tidymodels:v1.0-1995`
+
+Then can finish, and stop the container following above.
+
+# If wanted: restart the container (if no `--rm` tag)
 
 If stopped, restart by:
 
 `docker restart Rtidymodels_only` or `docker restart ####`
 
-# Rename the container
+# If wanted, rename the container
 
 `docker rename Rtidymodels_only Rtidymodels_complete`
 
